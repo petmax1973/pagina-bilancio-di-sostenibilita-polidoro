@@ -1,0 +1,320 @@
+/* Stili di base e Variabili Colore */
+:root {
+    --color-polidoro-green: #005A53;       /* Verde Petrolio/Scuro (Colore Primario) */
+    --color-polidoro-accent: #FFD700;      /* Giallo Oro/Fiamma (Accento CTA) */
+    --color-text-dark: #333333;            /* Nero/Grigio Scuro */
+    --color-text-light: #ffffff;           /* Bianco */
+    --color-border: #cccccc;
+    
+    /* GRADIENTI HEADER */
+    --color-green-light: #52a781;         
+    
+    /* GRADIENTI CORPO (Verde Scuro Ispirato a Polidoro ESG) */
+    --color-body-start: #013f39;          
+    --color-body-end: #002d28;            
+    
+    /* GRADIENTI ESG (Scuri e coerenti) */
+    --color-esg-dark-start: #114e48;      
+    --color-esg-dark-end: #0a3530;        
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* SFONDO CORPO: Sfumatura Verde Scuro */
+    background: linear-gradient(to bottom, var(--color-body-start), var(--color-body-end));
+    background-attachment: fixed; 
+    
+    /* Padding per ospitare il footer fisso */
+    padding-bottom: 60px; 
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    /* TESTO PRINCIPALE BIANCO per leggibilità */
+    color: var(--color-text-light); 
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-polidoro-green);
+    transition: color 0.2s;
+}
+
+a:hover {
+    color: var(--color-polidoro-accent);
+}
+
+/* Accessibilità */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* Contenitore principale per centrare il contenuto */
+.main-content-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- 1. HEADER E NAVIGAZIONE (Verde Sfumato) --- */
+.header {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 20px 5%;
+    /* SFUMATURA VERDE (GREEN) */
+    background: linear-gradient(to right, var(--color-polidoro-green), var(--color-green-light));
+    border-bottom: none; 
+}
+
+.logo-container {
+    display: block;
+}
+
+.logo-text {
+    font-size: 1.6em;
+    font-weight: bold;
+    color: var(--color-text-light); 
+}
+
+.nav-menu ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.nav-menu a {
+    color: var(--color-text-light); 
+    font-weight: bold;
+    text-transform: uppercase;
+    padding-bottom: 3px;
+    border-bottom: 2px solid transparent; 
+}
+
+.nav-menu a:hover {
+    color: var(--color-polidoro-accent);
+    border-bottom: 2px solid var(--color-polidoro-accent);
+}
+
+/* --- 2. SEZIONE HERO --- */
+.hero {
+    padding: 50px 0 30px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 2.8em;
+    margin-bottom: 15px;
+    /* TITOLO BIANCO */
+    color: var(--color-text-light);
+}
+
+.intro-text {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1em;
+    /* TESTO INTRODUTTIVO BIANCO */
+    color: var(--color-text-light);
+}
+
+/* Contenitore e Pulsante Download */
+.download-container {
+    margin-top: 30px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.download-btn {
+    background-color: var(--color-polidoro-accent);
+    /* Testo scuro per forte contrasto sul giallo */
+    color: var(--color-text-dark) !important; 
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.95em;
+    letter-spacing: 0.5px;
+    border: 2px solid var(--color-polidoro-accent);
+    transition: all 0.3s;
+}
+
+.download-btn:hover {
+    background-color: var(--color-polidoro-green);
+    color: var(--color-text-light) !important;
+    border-color: var(--color-polidoro-green);
+}
+
+/* --- 3. PILASTRI ESG --- */
+.esg-pillars {
+    padding: 0 0 60px;
+}
+
+.esg-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.esg-item {
+    flex-basis: 30%;
+    padding: 35px 20px;
+    /* Bordo Primario/Accentuato per visibilità su sfondo scuro */
+    border: 3px solid var(--color-green-light); 
+    border-radius: 5px;
+    
+    /* SFONDO ESG: Gradiente Verde Scuro */
+    background: linear-gradient(to bottom, var(--color-esg-dark-start), var(--color-esg-dark-end));
+    
+    text-align: center;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4); 
+}
+
+.esg-label {
+    display: block;
+    font-weight: bold;
+    color: var(--color-polidoro-accent);
+    font-size: 0.8em;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.esg-item h3 {
+    /* TITOLI BIANCHI per leggibilità */
+    color: var(--color-text-light); 
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    text-transform: uppercase;
+}
+
+.esg-item p {
+    /* TESTO CHIARO/GRIGIO per leggibilità */
+    font-size: 0.9em;
+    color: #e0e0e0; 
+}
+
+/* --- 4. FOOTER (Ancorato al fondo) --- */
+footer {
+    position: fixed; 
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    
+    padding: 15px 5%;
+    background-color: var(--color-text-dark);
+    color: var(--color-text-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85em;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.footer-details {
+    font-size: 0.9em; 
+    line-height: 1.5; 
+}
+
+/* LINK TORNA SU (Stato di default: nascosto) */
+.back-to-top {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--color-polidoro-accent) !important;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    
+    /* NASCONDE DI DEFAULT */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+/* MOSTRA QUANDO LA CLASSE 'show' È AGGIUNTA DA JAVASCRIPT */
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* --- 5. RESPONSIVITÀ (Tablet e Mobile) --- */
+@media (max-width: 992px) {
+    .esg-grid {
+        flex-wrap: wrap; 
+        gap: 20px;
+    }
+
+    .esg-item {
+        flex-basis: 45%;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: center; 
+        padding: 15px 20px;
+    }
+    
+    .logo-container {
+        margin-bottom: 10px;
+    }
+    
+    .nav-menu {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .nav-menu ul {
+        justify-content: center;
+    }
+    
+    .hero h1 {
+        font-size: 2em;
+    }
+    
+    .download-container {
+        padding: 0 20px;
+    }
+
+    .esg-grid {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .esg-item {
+        flex-basis: 100%;
+        margin: 0 20px;
+    }
+    
+    .main-content-wrapper {
+        padding: 0;
+    }
+    
+    footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+        padding: 10px 5%;
+    }
+    
+    .footer-details {
+        text-align: center; 
+    }
+    
+    body {
+        /* Aumenta il padding bottom per il footer mobile più alto */
+        padding-bottom: 80px; 
+    }
+}
