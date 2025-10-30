@@ -3,26 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Titolo della pagina che compare in alto nella tab -->
     <title>Bilancio di Sostenibilità Polidoro</title>
+    <!-- Collegamento al file contenente le regole CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- Divido la pagina in tre sezioni principali 
+    header la barra fissa in alto contenente anche il menù di navigazione
+    main che è la parte principale del sito
+    footer la parte fissa in basso 
+    -->
     <header class="header">
         <div class="logo-container">
+            <!-- aria-label è un attributo che viene letto dai motori di ricerca e 
+             dai lettori di schermo per descrivere il link in modo accessibile -->
             <a href="#home" aria-label="Vai alla Home Page Polidoro">
                 <span class="logo-text">Polidoro</span>
                 </a>
         </div>
+        <!-- nav-menu è il menù di navigazione che viene visualizzato in alto nella barra fissa 
+        il tag nav è un tag semantico che viene usato per indicare al browser che la parte di codice 
+        dentro il tag nav è un menù di navigazione, utile per gli screen reader che possono far capire
+        in che parte della pagina ci troviamo -->
         <nav class="nav-menu" aria-label="Menu Principale Secondario">
+            <!-- qui posso mettere più voci di menù al momento ho solamente messo un
+             link che non porta da nessuna parte, genericamente potrebbe portare alla home page -->
             <ul>
                <li><a href="#home" aria-label="Home">Home</a></li>
            </ul>
         </nav>
     </header>
 
+    <!-- inizio della parte principale del sito -->
     <main>
         <div class="main-content-wrapper">
             <section class="hero" aria-labelledby="section-title">
+                <!-- è importante che i vari capitoli abbiano un grandezza che scala in modo ordinato
+                 il titolo principale infatti è un h1 mentre il titolo più in basso h2 
+                 <h2 id="esg-title" class="visually-hidden">I Pilastri ESG</h2>
+                 serve per gli screen reader e anche per mantenere una coerenza
+                 è sempre meglio far seguire ad un h1 un h2 e non passare direttamente ad h3
+                 h3 sono invece i titoli delle sezioni quadrate -->
                 <h1 id="section-title">Bilancio di Sostenibilità</h1>
                 <p class="intro-text">
                     Testo descrittivo introduttivo che illustra il contenuto del Bilancio di Sostenibilità.
@@ -43,6 +65,9 @@
             <section class="esg-pillars" aria-labelledby="esg-title">
                 <h2 id="esg-title" class="visually-hidden">I Pilastri ESG</h2>
                 <div class="esg-grid">
+                    <!-- role="region" indica a screen reader una sezione di rilievo
+                     che è separata dal resto della pagina, in questo caso è separata
+                     perchè inserita in una card -->
                     <div class="esg-item" role="region" aria-label="Sezione Ambiente">
                         <span class="esg-label">E.S.G.</span>
                         <h3>AMBIENTE</h3>
@@ -63,18 +88,26 @@
         </div>
     </main>
 
+    <!-- la parte finale, il piede della pagina qui di solito sono inserite informazioni
+     importanti ma non immediatamente essenziali per chi naviga nella pagina
+     in questo caso contiene l'indirizzo dell'azienda, a volte si inseriscono i link
+     ai social o altri menù come ad esempio le offerte di lavoro -->
     <footer>
         <div class="footer-details">
             POLIDORO<br>
-            Via Lago di Misurina 76, 36015 – SCHIO (Italy)<br>
+            Via Lago di Misurina 76, 36015 - SCHIO (Italy)<br>
             tel.+39 0445 678678 | P.IVA 02907940247<br>
             R.E.A n.283561/Vicenza | Capitale sociale: €24.000.000,00 i.v.
         </div>
 
+        <!-- diventa visibile solamente quando l'utente inizia a scrollare la pagina ad esempio
+         in uno smartphone, viene controllato da javascritp -->
         <div class="footer-links">
             <a href="#top" class="back-to-top" id="backToTopBtn" aria-label="Torna su">↑ Torna su</a> 
         </div>
     </footer>
+    <!-- aggiungo qui il jabavascript in modo da essere sicuro che le funzioni contenute
+     siano caricate alla fine della renderizzazione della pagina -->
     <script src="js/script.js"></script>
 </body>
 </html>

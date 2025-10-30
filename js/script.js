@@ -35,6 +35,6 @@ document.addEventListener('DOMContentLoaded', function() {
   // Collega la funzione di scroll al click del pulsante
   backToTopButton.addEventListener('click', topFunction);
   
-  // Esegui una prima verifica allo startup
+  // Esegui una prima verifica al caricamento della pagina
   scrollFunction();
 });

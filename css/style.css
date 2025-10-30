@@ -1,4 +1,7 @@
 /* Stili di base e Variabili Colore */
+/* elemento radice del documento, serve a definire
+variabili globali che potrò successivamente utilizzare con
+la notazione var(--nome--variabile) */
 :root {
     --color-polidoro-green: #005A53;       /* Verde Petrolio/Scuro (Colore Primario) */
     --color-polidoro-accent: #FFD700;      /* Giallo Oro/Fiamma (Accento CTA) */
@@ -18,14 +21,20 @@
     --color-esg-dark-end: #0a3530;        
 }
 
+/* selettore universale, questo stile si applica a tutti gli elementi della pagina */
 * {
+    /* con questa impostazione l'altezza e la larghezza includono anche il padding
+    e il border, quindi se metto larghezza 100px la larghezza sarà di 100px compreso
+    anche il border il padding, altrimenti ai 100px si aggiungerebbero anche padding e border
+    in questo modo rendo più semplice calcolare lo stile della pagina */
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
 body {
-    /* SFONDO CORPO: Sfumatura Verde Scuro */
+    /* linear-gradient fa si che dall'alto al basso ci sia una sfumatura del colore da 
+    --color-body-start fino a --color-body-end */
     background: linear-gradient(to bottom, var(--color-body-start), var(--color-body-end));
     background-attachment: fixed; 
     
@@ -38,11 +47,16 @@ body {
 }
 
 a {
+    /* fa si che il link non abbia la caratteristica sottolineatura */
     text-decoration: none;
     color: var(--color-polidoro-green);
+    /* quando passo sopra al link, la transizione color cambia in modo graduale
+    anziché immediatamente */
     transition: color 0.2s;
 }
 
+/* :hover è una pseudo-classe quando il mouse è sopra l'elemento
+abbiamo una transzione in questo caso del colore del testo */
 a:hover {
     color: var(--color-polidoro-accent);
 }
