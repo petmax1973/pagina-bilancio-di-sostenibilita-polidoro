@@ -2,6 +2,8 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
+    <!-- viene richiesto di utilizzare la larghezza del dispositivo e di non
+     zoomare, questo costrutto è necessario per rendere la pagina responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Titolo della pagina che compare in alto nella tab -->
     <title>Bilancio di Sostenibilità Polidoro</title>
@@ -36,9 +38,8 @@
     </header>
 
     <!-- inizio della parte principale del sito -->
-    <main>
-        <div class="main-content-wrapper">
-            <section class="hero" aria-labelledby="section-title">
+    <main class="main-content-wrapper">
+        <section class="hero" aria-labelledby="section-title">
                 <!-- è importante che i vari capitoli abbiano un grandezza che scala in modo ordinato
                  il titolo principale infatti è un h1 mentre il titolo più in basso h2 
                  <h2 id="esg-title" class="visually-hidden">I Pilastri ESG</h2>
@@ -85,7 +86,6 @@
                     </div>
                 </div>
             </section>
-        </div>
     </main>
 
     <!-- la parte finale, il piede della pagina qui di solito sono inserite informazioni

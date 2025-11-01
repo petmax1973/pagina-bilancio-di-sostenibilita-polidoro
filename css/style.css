@@ -75,6 +75,8 @@ a:hover {
 
 /* Contenitore principale per centrare il contenuto */
 .main-content-wrapper {
+    /* questo fa si che se lo schermo è mmolto grande, esempio un computer fisso
+    con schermo da 27 pollici, il contenuto si allarghi troppo */
     max-width: 1100px;
     margin: 0 auto;
     padding: 0 20px;
@@ -82,12 +84,18 @@ a:hover {
 
 /* --- 1. HEADER E NAVIGAZIONE (Verde Sfumato) --- */
 .header {
+    /* usa lo spazio disponibile, per adattare in base allo schermo */
     display: flex;
+    /* primo elemento la scritta Polidoro allineato a sinistra il secondo elemento il link Home
+    allineato a destra */
     justify-content: space-between; 
+    /* gli elementi vengono allineati verticalmente, immaginiamo una riga orizzontale
+    che taglia agli elementi orizzontalmente a metà */
     align-items: center;
     padding: 20px 5%;
     /* SFUMATURA VERDE (GREEN) */
     background: linear-gradient(to right, var(--color-polidoro-green), var(--color-green-light));
+    /* non visualizza il bordo in basso */
     border-bottom: none; 
 }
 
@@ -194,6 +202,7 @@ a:hover {
 }
 
 .esg-grid {
+    /* le card si adattano allo spazio, incolonnandosi nel caso lo schermo sia piccolo */
     display: flex;
     justify-content: center;
     gap: 30px;
@@ -283,8 +292,12 @@ footer {
 
 
 /* --- 5. RESPONSIVITÀ (Tablet e Mobile) --- */
+
+/* per tablet */
 @media (max-width: 992px) {
     .esg-grid {
+        /* questo fa si che gli elementi vengano messi su più righe se non
+        hanno lo spazio per rimanere tutti sulla stessa riga */
         flex-wrap: wrap; 
         gap: 20px;
     }
@@ -294,8 +307,12 @@ footer {
     }
 }
 
+/* per smartphone */
 @media (max-width: 768px) {
     .header {
+        /* imposta la direzione degli elementi, nel caso column se si devono 
+        riposizionare gli elementi ad esempio per uno schermo piccolo, questo
+        riposizionamento sarà fatto in colonna */
         flex-direction: column;
         align-items: center; 
         padding: 15px 20px;
