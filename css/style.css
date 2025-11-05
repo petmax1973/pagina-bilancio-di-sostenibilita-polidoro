@@ -263,7 +263,7 @@ footer {
     z-index: 1000;
     
     padding: 18px 5%;
-    background: linear-gradient(180deg, var(--color-polidoro-green-dark) 0%, #066d5f 100%);
+    background: linear-gradient(180deg, var(--color-body-end) 0%, #23776c 100%);
     color: var(--color-text-light);
     display: flex;
     justify-content: space-between;
