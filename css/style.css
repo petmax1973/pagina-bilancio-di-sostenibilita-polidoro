@@ -3,22 +3,28 @@
 variabili globali che potrò successivamente utilizzare con
 la notazione var(--nome--variabile) */
 :root {
-    --color-polidoro-green: #005A53;       /* Verde Petrolio/Scuro (Colore Primario) */
-    --color-polidoro-accent: #FFD700;      /* Giallo Oro/Fiamma (Accento CTA) */
-    --color-text-dark: #333333;            /* Nero/Grigio Scuro */
+    /* COLORI PRINCIPALI POLIDORO (esatti dal sito) */
+    --color-polidoro-green: #00a876;       /* Verde Polidoro Principale (esatto) */
+    --color-polidoro-green-dark: #00805d;  /* Verde Polidoro Scuro (esatto) */
+    --color-polidoro-green-medium: #009966; /* Verde Polidoro Medio */
+    --color-polidoro-green-light: #33c199; /* Verde Polidoro Chiaro */
+    --color-polidoro-accent: #d4a574;      /* Beige/Dorato (Accento CTA) */
+    --color-text-dark: #2c3e2d;            /* Verde/Nero Scuro per testo */
     --color-text-light: #ffffff;           /* Bianco */
-    --color-border: #cccccc;
+    --color-text-medium: #4a5568;          /* Grigio Medio per testo secondario */
+    --color-border: #b3e6d1;               /* Bordo verde chiaro */
     
-    /* GRADIENTI HEADER */
-    --color-green-light: #52a781;         
+    /* GRADIENTI HEADER (basati su #00a876) */
+    --color-green-light: #4dc5a0;         /* Verde chiaro per gradiente header */
     
-    /* GRADIENTI CORPO (Verde Scuro Ispirato a Polidoro ESG) */
-    --color-body-start: #013f39;          
-    --color-body-end: #002d28;            
+    /* GRADIENTI CORPO (Sfumatura dall'alto chiaro al basso più scuro) */
+    --color-body-start: #ffffff;          /* Bianco puro in alto (include header) */
+    --color-body-end: #0FA6A8;            /* Teal/cyan scuro in basso */
     
-    /* GRADIENTI ESG (Scuri e coerenti) */
-    --color-esg-dark-start: #114e48;      
-    --color-esg-dark-end: #0a3530;        
+    /* CARD ESG (Sfondo chiaro come design Polidoro) */
+    --color-esg-card-bg: #f0f8f6;         /* Aqua molto chiaro per card */
+    --color-esg-card-border: #00a876;      /* Bordo teal Polidoro */
+    --color-esg-card-hover: #e8f5f2;     /* Hover più chiaro */
 }
 
 /* selettore universale, questo stile si applica a tutti gli elementi della pagina */
@@ -42,14 +48,14 @@ body {
     padding-bottom: 60px; 
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    /* TESTO PRINCIPALE BIANCO per leggibilità */
-    color: var(--color-text-light); 
+    /* TESTO PRINCIPALE SCURO per leggibilità su sfondo verde chiaro */
+    color: var(--color-text-dark); 
 }
 
 a {
     /* fa si che il link non abbia la caratteristica sottolineatura */
     text-decoration: none;
-    color: var(--color-polidoro-green);
+    color: var(--color-polidoro-green-dark);
     /* quando passo sopra al link, la transizione color cambia in modo graduale
     anziché immediatamente */
     transition: color 0.2s;
@@ -58,7 +64,7 @@ a {
 /* :hover è una pseudo-classe quando il mouse è sopra l'elemento
 abbiamo una transzione in questo caso del colore del testo */
 a:hover {
-    color: var(--color-polidoro-accent);
+    color: var(--color-polidoro-green);
 }
 
 /* Accessibilità */
@@ -82,21 +88,14 @@ a:hover {
     padding: 0 20px;
 }
 
-/* --- 1. HEADER E NAVIGAZIONE (Verde Sfumato) --- */
+/* --- 1. HEADER E NAVIGAZIONE (Parte della stessa sfumatura del corpo) --- */
 .header {
-    /* usa lo spazio disponibile, per adattare in base allo schermo */
     display: flex;
-    /* primo elemento la scritta Polidoro allineato a sinistra il secondo elemento il link Home
-    allineato a destra */
     justify-content: space-between; 
-    /* gli elementi vengono allineati verticalmente, immaginiamo una riga orizzontale
-    che taglia agli elementi orizzontalmente a metà */
     align-items: center;
-    padding: 20px 5%;
-    /* SFUMATURA VERDE (GREEN) */
-    background: linear-gradient(to right, var(--color-polidoro-green), var(--color-green-light));
-    /* non visualizza il bordo in basso */
-    border-bottom: none; 
+    padding: 18px 5%;
+    /* Trasparente per far vedere il gradiente del body (fisso) */
+    background: transparent;
 }
 
 .logo-container {
@@ -106,7 +105,7 @@ a:hover {
 .logo-text {
     font-size: 1.6em;
     font-weight: bold;
-    color: var(--color-text-light); 
+    color: var(--color-polidoro-green-dark);
 }
 
 .nav-menu ul {
@@ -116,16 +115,16 @@ a:hover {
 }
 
 .nav-menu a {
-    color: var(--color-text-light); 
+    color: var(--color-polidoro-green-dark);
     font-weight: bold;
     text-transform: uppercase;
     padding-bottom: 3px;
-    border-bottom: 2px solid transparent; 
+    border-bottom: 2px solid transparent;
 }
 
 .nav-menu a:hover {
-    color: var(--color-polidoro-accent);
-    border-bottom: 2px solid var(--color-polidoro-accent);
+    color: var(--color-polidoro-green);
+    border-bottom: 2px solid var(--color-polidoro-green);
 }
 
 /* --- 2. SEZIONE HERO --- */
@@ -137,16 +136,17 @@ a:hover {
 .hero h1 {
     font-size: 2.8em;
     margin-bottom: 15px;
-    /* TITOLO BIANCO */
-    color: var(--color-text-light);
+    /* TITOLO TEAL come sito Polidoro */
+    color: var(--color-polidoro-green);
 }
 
 .intro-text {
     max-width: 800px;
     margin: 0 auto;
     font-size: 1.1em;
-    /* TESTO INTRODUTTIVO BIANCO */
-    color: var(--color-text-light);
+    /* TESTO INTRODUTTIVO SCURO per leggibilità su sfondo bianco */
+    color: var(--color-text-dark);
+    line-height: 1.8;
 }
 
 /* Contenitore e Pulsante Download */
@@ -157,9 +157,9 @@ a:hover {
 }
 
 .download-btn {
-    background-color: var(--color-polidoro-accent);
-    /* Testo scuro per forte contrasto sul giallo */
-    color: var(--color-text-dark) !important; 
+    background-color: transparent;
+    /* Testo teal come design Polidoro */
+    color: var(--color-polidoro-green) !important; 
     
     /* Layout del bottone e gestione del testo */
     display: inline-flex;
@@ -178,7 +178,7 @@ a:hover {
     text-transform: uppercase;
     font-size: clamp(0.9rem, 2.8vw, 1.05rem);
     letter-spacing: 0.4px;
-    border: 2px solid var(--color-polidoro-accent);
+    border: 2px solid var(--color-polidoro-green);
     transition: all 0.3s;
 }
 
@@ -186,6 +186,7 @@ a:hover {
     background-color: var(--color-polidoro-green);
     color: var(--color-text-light) !important;
     border-color: var(--color-polidoro-green);
+    box-shadow: 0 4px 12px rgba(0, 168, 118, 0.2);
 }
 
 /* Ulteriore ottimizzazione per telefoni molto piccoli */
@@ -211,21 +212,28 @@ a:hover {
 .esg-item {
     flex-basis: 30%;
     padding: 35px 20px;
-    /* Bordo Primario/Accentuato per visibilità su sfondo scuro */
-    border: 3px solid var(--color-green-light); 
-    border-radius: 5px;
+    /* Bordo teal come design Polidoro */
+    border: 2px solid var(--color-esg-card-border); 
+    border-radius: 8px;
     
-    /* SFONDO ESG: Gradiente Verde Scuro */
-    background: linear-gradient(to bottom, var(--color-esg-dark-start), var(--color-esg-dark-end));
+    /* SFONDO CHIARO come design Polidoro */
+    background-color: var(--color-esg-card-bg);
     
     text-align: center;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4); 
+    box-shadow: 0 2px 8px rgba(0, 168, 118, 0.08);
+    transition: all 0.3s ease;
+}
+
+.esg-item:hover {
+    background-color: var(--color-esg-card-hover);
+    box-shadow: 0 4px 12px rgba(0, 168, 118, 0.12);
+    transform: translateY(-2px);
 }
 
 .esg-label {
     display: block;
     font-weight: bold;
-    color: var(--color-polidoro-accent);
+    color: var(--color-polidoro-green);
     font-size: 0.8em;
     letter-spacing: 3px;
     margin-bottom: 10px;
@@ -233,17 +241,17 @@ a:hover {
 }
 
 .esg-item h3 {
-    /* TITOLI BIANCHI per leggibilità */
-    color: var(--color-text-light); 
+    /* TITOLI TEAL per leggibilità su sfondo chiaro */
+    color: var(--color-polidoro-green-dark); 
     margin-bottom: 15px;
     font-size: 1.5em;
     text-transform: uppercase;
 }
 
 .esg-item p {
-    /* TESTO CHIARO/GRIGIO per leggibilità */
+    /* TESTO SCURO per leggibilità su sfondo chiaro */
     font-size: 0.9em;
-    color: #e0e0e0; 
+    color: var(--color-text-medium); 
 }
 
 /* --- 4. FOOTER (Ancorato al fondo) --- */
@@ -254,8 +262,8 @@ footer {
     width: 100%;
     z-index: 1000;
     
-    padding: 15px 5%;
-    background-color: var(--color-text-dark);
+    padding: 18px 5%;
+    background: linear-gradient(180deg, var(--color-polidoro-green-dark) 0%, #066d5f 100%);
     color: var(--color-text-light);
     display: flex;
     justify-content: space-between;
