@@ -180,22 +180,8 @@ a:hover {
 }
 
 .download-btn {
-    background-color: transparent;
-    /* Testo teal come design Polidoro !important rompe la regola di precedenza e rende l'elemento
-    escluso dalle regole di precedenza, è da usare con parsimonia */
-    color: var(--color-polidoro-green) !important; 
-    
-    /* Layout del bottone e gestione del testo */
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    max-width: 100%;
-    white-space: normal;        /* consenti a capo */
-    word-break: keep-all;       /* evita spezzature nel mezzo della parola */
-    overflow-wrap: anywhere;    /* forza a capo se necessario */
-
-    line-height: 1.25;
+    background-color: var(--color-polidoro-accent);
+    color: var(--color-polidoro-green-dark) !important;
     padding: 14px 20px;
     border-radius: 28px;
     font-weight: bold;
@@ -203,14 +189,20 @@ a:hover {
     font-size: clamp(0.9rem, 2.8vw, 1.05rem);
     letter-spacing: 0.4px;
     border: 2px solid var(--color-polidoro-green);
-    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    display: inline-block;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, transform 0.15s, box-shadow 0.17s;
 }
 
-.download-btn:hover {
+/* al passaggio del mouse o del focus, il bottone cambia colore e si ingrandisce */
+.download-btn:hover,
+.download-btn:focus {
     background-color: var(--color-polidoro-green);
-    color: var(--color-text-light) !important;
-    border-color: var(--color-polidoro-green);
-    box-shadow: 0 4px 12px rgba(0, 168, 118, 0.2);
+    color: #fff !important;
+    border-color: var(--color-polidoro-accent);
+    transform: scale(1.07);
+    box-shadow: 0 8px 32px rgba(0, 168, 118, 0.20), 0 2px 0 rgba(0,0,0,0.03);
 }
 
 /* Ulteriore ottimizzazione per telefoni molto piccoli */
@@ -248,9 +240,13 @@ a:hover {
     transition: all 0.3s ease;
 }
 
+/* al passaggio del mouse, il card cambia colore e si alza leggermente */
 .esg-item:hover {
+    /* cambia colore */
     background-color: var(--color-esg-card-hover);
+    /* ha un effetto di ombra leggermente più forte */
     box-shadow: 0 4px 12px rgba(0, 168, 118, 0.12);
+    /* si alza leggermente */
     transform: translateY(-2px);
 }
 
@@ -280,24 +276,36 @@ a:hover {
 
 /* --- 4. FOOTER (Ancorato al fondo) --- */
 footer {
+    /* posizione fissa al fondo della pagina, indipendente dallo scrolling */
     position: fixed; 
     bottom: 0;
     left: 0;
     width: 100%;
+    /* la proprietà z-index serve a definire l'ordine di sovrappozione degli elementi,
+    in questo caso il footer è posizionato sopra tutti gli altri elementi, 
+    il valore 1000 è il più alto, quindi il footer sarà il primo elemento 
+    che verrà visualizzato */
     z-index: 1000;
-    
     padding: 18px 5%;
     background: linear-gradient(180deg, var(--color-body-end) 0%, #23776c 100%);
     color: var(--color-text-light);
+    /* il conteniutore diventa flessibile e si adatta alla larghezza dello schermo */
     display: flex;
+    /* gli elementi si distribuiscano in modo uniforme tra il bordo sinistro e destro dello schermo */
     justify-content: space-between;
+    /* allineamento verticale al centro dello schermo */
     align-items: center;
+    /* dimensione del testo */
     font-size: 0.85em;
+    /* effetto di ombra */
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
 }
 
+/* testo dei dettagli del footer */
 .footer-details {
+    /* dimensione del testo */
     font-size: 0.9em; 
+    /* interlinea */
     line-height: 1.5; 
 }
 
@@ -308,9 +316,11 @@ footer {
     color: var(--color-polidoro-accent) !important;
     padding: 5px 10px;
     border: none;
+    /* il cursore diventa una mano quando il mouse passa sopra il link, 
+    in una pagina web */
     cursor: pointer;
-    
-    /* NASCONDE DI DEFAULT */
+    /* inizialmente è nascosto, grazie al javascript sarà visibile
+    quando l'utente scrolla la pagina verso l'alto */
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s, visibility 0.3s;
@@ -335,6 +345,7 @@ footer {
     }
 
     .esg-item {
+        /* la larghezza dell'elemento diventa il 45% dell'area disponibile */
         flex-basis: 45%;
     }
 }
