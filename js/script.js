@@ -13,8 +13,10 @@ document.addEventListener('DOMContentLoaded', function() {
   function scrollFunction() {
     // Controlla se l'utente ha scrollato più di 20px
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      // mostra il bottone che consente di tornare all'inizio pagina
       backToTopButton.classList.add("show");
     } else {
+      // nasconde il bottone che consente di tornare ad inizio pagina
       backToTopButton.classList.remove("show");
     }
   }

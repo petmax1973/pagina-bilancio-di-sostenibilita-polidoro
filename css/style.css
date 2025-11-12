@@ -6,16 +6,10 @@ la notazione var(--nome--variabile) */
     /* COLORI PRINCIPALI POLIDORO (esatti dal sito) */
     --color-polidoro-green: #00a876;       /* Verde Polidoro Principale (esatto) */
     --color-polidoro-green-dark: #00805d;  /* Verde Polidoro Scuro (esatto) */
-    --color-polidoro-green-medium: #009966; /* Verde Polidoro Medio */
-    --color-polidoro-green-light: #33c199; /* Verde Polidoro Chiaro */
     --color-polidoro-accent: #d4a574;      /* Beige/Dorato (Accento CTA) */
     --color-text-dark: #2c3e2d;            /* Verde/Nero Scuro per testo */
     --color-text-light: #ffffff;           /* Bianco */
     --color-text-medium: #4a5568;          /* Grigio Medio per testo secondario */
-    --color-border: #b3e6d1;               /* Bordo verde chiaro */
-    
-    /* GRADIENTI HEADER (basati su #00a876) */
-    --color-green-light: #4dc5a0;         /* Verde chiaro per gradiente header */
     
     /* GRADIENTI CORPO (Sfumatura dall'alto chiaro al basso più scuro) */
     --color-body-start: #ffffff;          /* Bianco puro in alto (include header) */
@@ -24,7 +18,6 @@ la notazione var(--nome--variabile) */
     /* CARD ESG (Sfondo chiaro come design Polidoro) */
     --color-esg-card-bg: #f0f8f6;         /* Aqua molto chiaro per card */
     --color-esg-card-border: #00a876;      /* Bordo teal Polidoro */
-    --color-esg-card-hover: #e8f5f2;     /* Hover più chiaro */
 }
 
 /* selettore universale, questo stile si applica a tutti gli elementi della pagina */
@@ -42,10 +35,13 @@ body {
     /* linear-gradient fa si che dall'alto al basso ci sia una sfumatura del colore da 
     --color-body-start fino a --color-body-end */
     background: linear-gradient(to bottom, var(--color-body-start), var(--color-body-end));
+    /* serve a mantenere fisso lo sfondo qiando la pagina viene scrollata */
     background-attachment: fixed; 
     
     /* Padding per ospitare il footer fisso */
     padding-bottom: 60px; 
+    /* il browser tenterà prima di utilizzare il carattere Arial, nel caso questo font non
+    fosse disponibile allora sarà usato un qualsiasi altro font del tipo sans-serif presente */
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
     /* TESTO PRINCIPALE SCURO per leggibilità su sfondo verde chiaro */
@@ -69,14 +65,21 @@ a:hover {
 
 /* Accessibilità */
 .visually-hidden {
+    /* serve a nascondere l'elemento dalla pagina, ma lo mantiene accessibile per screen reader */
     position: absolute;
+    /* rende l'elemento molto piccolo, quasi invisibile */
     width: 1px;
     height: 1px;
-    padding: 0;
+    /* rimuove lo spazio dell'elemento dalla pagina */
     margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
+    /* nessun padding */
+    padding: 0;
+    /* niente bordo */
     border: 0;
+    /* sposta l'elemento fuori dalla pagina in modo che non occupi spazio */
+    overflow: hidden;
+    /* taglia l'elemento in modo che non sia visibile */
+    clip: rect(0, 0, 0, 0);
 }
 
 /* Contenitore principale per centrare il contenuto */
@@ -90,53 +93,73 @@ a:hover {
 
 /* --- 1. HEADER E NAVIGAZIONE (Parte della stessa sfumatura del corpo) --- */
 .header {
+    /* il conteniutore diventa flessibile e si adatta alla larghezza dello schermo */
     display: flex;
+    /* gli elementi si distribuiscano in modo uniforme tra il bordo sinistro e destro dello schermo */
     justify-content: space-between; 
+    /* allineamento verticale al centro dello schermo */
     align-items: center;
     padding: 18px 5%;
     /* Trasparente per far vedere il gradiente del body (fisso) */
     background: transparent;
 }
 
+/* elemento di tipo blocco, questo tipo di elementi occupano tutta la larghezza disponibile */
 .logo-container {
     display: block;
 }
 
+/* testo del logo */
 .logo-text {
+    /* dimensione del testo */
     font-size: 1.6em;
+    /* spessore del testo */
     font-weight: bold;
+    /* colore del testo */
     color: var(--color-polidoro-green-dark);
 }
 
+
 .nav-menu ul {
+    /* rimuove i punti dalla lista */       
     list-style: none;
+    /* il conteniutore diventa flessibile e si adatta alla larghezza dello schermo */
     display: flex;
+    /* gli elementi si distribuiscano in modo uniforme tra il bordo sinistro e destro dello schermo */
     gap: 15px;
 }
 
 .nav-menu a {
+    /* colore del testo */
     color: var(--color-polidoro-green-dark);
+    /* spessore del testo */
     font-weight: bold;
+    /* trasformazione del testo in maiuscolo */
     text-transform: uppercase;
+    /* padding sotto il testo */
     padding-bottom: 3px;
+    /* bordo sotto il testo */
     border-bottom: 2px solid transparent;
 }
 
 .nav-menu a:hover {
+    /* colore del testo al passaggio del mouse */
     color: var(--color-polidoro-green);
+    /* bordo sotto il testo al passaggio del mouse */
     border-bottom: 2px solid var(--color-polidoro-green);
 }
 
 /* --- 2. SEZIONE HERO --- */
 .hero {
     padding: 50px 0 30px;
+    /* centra orizzontalmente il testo all'interno dell'elemento */
     text-align: center;
 }
 
 .hero h1 {
     font-size: 2.8em;
     margin-bottom: 15px;
-    /* TITOLO TEAL come sito Polidoro */
+    /* colore del testo */
     color: var(--color-polidoro-green);
 }
 
@@ -158,7 +181,8 @@ a:hover {
 
 .download-btn {
     background-color: transparent;
-    /* Testo teal come design Polidoro */
+    /* Testo teal come design Polidoro !important rompe la regola di precedenza e rende l'elemento
+    escluso dalle regole di precedenza, è da usare con parsimonia */
     color: var(--color-polidoro-green) !important; 
     
     /* Layout del bottone e gestione del testo */
